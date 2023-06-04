@@ -1,0 +1,25 @@
+import kotlin.Boolean;
+import java.util.Date;
+
+CREATE TABLE todo (
+  id INTEGER PRIMARY KEY NOT NULL,
+  title TEXT NOT NULL,
+  isDone INTEGER AS Boolean NOT NULL,
+  createdAt INTEGER AS Date NOT NULL
+);
+
+findAll:
+SELECT *
+FROM todo;
+
+
+findOneByID:
+SELECT *
+FROM todo WHERE id = ?;
+
+insert:
+INSERT INTO todo(id, title, isDone, createdAt)
+VALUES (?, ?, ?, ?);
+
+toggle:
+UPDATE todo SET isDone = ? WHERE id = ?;
